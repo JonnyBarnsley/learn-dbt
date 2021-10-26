@@ -3,26 +3,11 @@
 )}}
 
 with customers as (
-
-    select
-        id as customer_id,
-        first_name,
-        last_name
-
-    from SANDBOX_DBT_RAW_JAFFLE_SHOP.customers
-
+    select * from {{ref('STG_CUSTOMERS')}}
 ),
 
 orders as (
-
-    select
-        id as order_id,
-        user_id as customer_id,
-        order_date,
-        status
-
-    from SANDBOX_DBT_RAW_JAFFLE_SHOP.orders
-
+    select * from {{ref('STG_ORDERS')}}
 ),
 
 customer_orders as (
