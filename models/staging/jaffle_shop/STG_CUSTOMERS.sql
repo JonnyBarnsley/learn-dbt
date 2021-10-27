@@ -5,7 +5,7 @@ with customers as (
         first_name,
         last_name
 
-    from SANDBOX_DBT_RAW_JAFFLE_SHOP.customers
+    from {{ source('SANDBOX_DBT_RAW_JAFFLE_SHOP','customers') }}
 
 )
 

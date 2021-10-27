@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: SANDBOX_DBT_RAW_JAFFLE_SHOP
+    database: DEV
+    tables:
+      - name: customers
+      - name: orders

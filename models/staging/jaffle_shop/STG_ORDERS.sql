@@ -6,7 +6,7 @@ with orders as (
         order_date,
         status
 
-    from SANDBOX_DBT_RAW_JAFFLE_SHOP.orders
+    from {{ source('SANDBOX_DBT_RAW_JAFFLE_SHOP','orders') }}
 
 )
 

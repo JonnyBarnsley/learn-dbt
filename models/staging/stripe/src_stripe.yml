@@ -1,0 +1,7 @@
+version: 2
+
+sources:
+  - name: SANDBOX_DBT_STRIPE
+    database: DEV
+    tables:
+      - name: payment

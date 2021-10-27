@@ -7,7 +7,7 @@ with payments as (
         status,
         amount / 100 as amount,
         created as created_at
-    from SANDBOX_DBT_STRIPE.PAYMENT
+    from {{ source('SANDBOX_DBT_STRIPE','payment') }}
 
 )
 
