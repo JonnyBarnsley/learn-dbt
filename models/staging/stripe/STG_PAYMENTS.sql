@@ -5,9 +5,11 @@ with payments as (
         orderid as order_id,
         paymentmethod as payment_method,
         status,
-        amount / 100 as amount,
+        {{ cents_to_dollars('amount') }} as amount,
         created as created_at
     from {{ source('SANDBOX_DBT_STRIPE','payment') }}
+
+    {{ limit_data_in_dev('created', 10000) }}
 
 )
 

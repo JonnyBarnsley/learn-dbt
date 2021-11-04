@@ -7,6 +7,7 @@ with orders as (
         status
 
     from {{ source('SANDBOX_DBT_RAW_JAFFLE_SHOP','orders') }}
+    {{ limit_data_in_dev('order_date', 10000) }}
 
 )
 
