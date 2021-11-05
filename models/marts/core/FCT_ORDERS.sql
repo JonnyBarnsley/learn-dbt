@@ -6,6 +6,10 @@ orders as (
     select * from {{ref('STG_ORDERS')}}
 ),
 
+employees as(
+    select * from {{ref('employees')}}
+),
+
 order_payments as(
     select
         order_id,
@@ -18,10 +22,12 @@ final as (
     select
         orders.order_id,
         orders.customer_id,
+        employees.employee_id is not null as is_employee,
         orders.order_date,
         coalesce(order_payments.amount, 0) as amount
     from orders
     left join order_payments using (order_id)
+    left join employees using (customer_id)
 )
 
 SELECT * FROM final
